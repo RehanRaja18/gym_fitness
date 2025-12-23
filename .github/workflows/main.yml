@@ -26,10 +26,12 @@ jobs:
         run: flutter pub get
 
       - name: Static code analysis (CI)
-        run: flutter analyze || true
+        continue-on-error: true
+        run: flutter analyze
 
       - name: Run tests (CI)
-        run: flutter test || true
+        continue-on-error: true
+        run: flutter test
 
       - name: Build APK (CI)
         run: flutter build apk --debug

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "801102295535",
+    "firebase_url": "https://devil-e3c45-default-rtdb.firebaseio.com",
+    "project_id": "devil-e3c45",
+    "storage_bucket": "devil-e3c45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801102295535:android:fd2b6c4aa68fe879a1c61a",
+        "android_client_info": {
+          "package_name": "com.example.gym_fitness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn075IWGl5KXiMYvPcYawJ1mnITCrh688"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

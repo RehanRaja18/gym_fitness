@@ -19,7 +19,7 @@ jobs:
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.38.5'
 
       # 3️⃣ Verify Flutter Installation
       - name: Flutter version check

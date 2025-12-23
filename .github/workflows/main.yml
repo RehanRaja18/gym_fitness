@@ -1,0 +1,49 @@
+name: Flutter CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout Code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Flutter
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
+      # 3️⃣ Verify Flutter Installation
+      - name: Flutter version check
+        run: flutter --version
+
+      # 4️⃣ Install Dependencies (CI)
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 5️⃣ Code Analysis (CI)
+      - name: Run static code analysis
+        run: flutter analyze
+
+      # 6️⃣ Run Tests (CI)
+      - name: Run unit tests
+        run: flutter test
+
+      # 7️⃣ Build APK (CI)
+      - name: Build Debug APK
+        run: flutter build apk --debug
+
+      # 8️⃣ Upload Build Artifact (CD)
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk

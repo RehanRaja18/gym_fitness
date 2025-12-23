@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - echo Installing Flutter
+      - git clone https://github.com/flutter/flutter.git /usr/local/flutter
+      - export PATH="$PATH:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin"
+      - flutter doctor -v
+      - flutter pub get
+
+  build:
+    commands:
+      - echo Building APK
+      - flutter build apk --debug
+
+artifacts:
+  files:
+    - build/app/outputs/flutter-apk/app-debug.apk
+  discard-paths: yes
